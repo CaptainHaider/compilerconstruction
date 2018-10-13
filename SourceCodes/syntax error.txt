@@ -1,0 +1,184 @@
+intg start (intg)
+[  ] // empty body
+
+
+--------------------------------------
+
+intg start (intg)
+[ intg a= ;
+] // constant or id missing
+
+
+--------------------------------------
+
+intg start (intg)[
+a=+3;
+ ] // wrong iteration
+
+
+--------------------------------------
+
+intg start (intg)[ 
+a=a+b=c; 
+] // use of double assignment
+
+intg start (intg)[ 
+a=a+; 
+] // constant or id missing
+
+
+--------------------------------------
+
+intg start (intg)[ 
+intg a , b , c + d ;
+]// assignment missing
+
+intg start (intg)[ 
+intg a = ;
+] // constant or id missing
+
+
+--------------------------------------
+
+intg start (intg) { 
+WL  ( a<6 , a++)  ; 
+} // wrong braces
+
+
+--------------------------------------
+
+intg start (void) [ 
+FR ( intg a = 0 ) { (a<5) ; a++    } intg b += 2;
+ ] //terminator missing
+
+
+--------------------------------------
+
+intg start (intg) [ 
+$ELSE (a < b ); 
+$IF ;  
+] // Wrong Else placed
+
+--------------------------------------
+
+intg start (intg) [ 
+SSWITCH ( ) {
+ CC = 2 :
+ intg a ; 
+break ; } 
+] // Id missing in Switch statemennt
+
+intg start (intg) [
+a=+6 ;
+]
+
+
+--------------------------------------
+
+intg start (intg) [
+WL (a++ , a<3 ) 
+intg a=6;
+] wrong placement of test statement and increament
+
+--------------------------------------
+
+intg start (intg) [ 
+FR (a++ ) { (a<5) ; a++ ; }
+b= b+a;
+] // increament not allowed in for loop ,only declaration
+
+--------------------------------------
+
+intg start (intg) [
+$IF (a++ )
+a++;
+ $ELSE
+b++; 
+ ] // no testing condition in if
+
+--------------------------------------
+
+intg start (intg) [
+$IF ( && b )
+a++;
+ $ELSE
+b++;
+] // && operator is not preceded by ID
+
+--------------------------------------
+
+**********MULTIPLE STATEMENTS**********
+
+--------------------------------------
+
+intg start (intg) 
+[
+FR ( intg a =0 ) { (a<5) ; a++ ; }
+
+$IF (a < b )
+intg a ;
+$ELSE
+flt a ;
+}
+] // opening brace for multiple is missing
+
+--------------------------------------
+
+intg start (intg) [
+FR ( intg a =0 ) { (a<5) ; a++ ; }
+{
+$IF (a < b )
+intg a ;
+WL (a<6 , a++)
+intg g ;
+}
+$ELSE
+flt a ;
+}
+] // If is not multi statement ( no braces )
+
+--------------------------------------
+
+intg start (intg) [
+{
+ a++ ; 
+a+=2 ;
+SSWITCH (a ) 
+ 
+CC = 2 : ; 
+break ;
+
+a+=2 ;
+a++; 
+} 
+] // braces of switch missing
+
+--------------------------------------
+
+intg start (intg) [ 
+FR ( intg a =0 )
+{ (a<5) ; }
+{
+b++;
+b++;
+b++;
+}
+] // no increament in for condition
+
+--------------------------------------
+
+intg start (intg)[  
+a= 2.1434; 
+]
+FUNC start (intg,intg,flt)
+{ 
+a= 1.56778;
+} // use of start in function not allowed
+
+
+--------------------------------------
+
+intg start (intg)[ ; ]
+FUNC (intg,a+b){ ;} //error in param
+
+--------------------------------------

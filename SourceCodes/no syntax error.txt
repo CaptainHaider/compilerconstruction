@@ -1,0 +1,278 @@
+intg start (intg)[ 
+intg a; 
+]
+-------------------------------------------------
+intg start (intg)[ 
+intg a=2 ;
+]
+-------------------------------------------------
+intg start (intg)[ 
+a=2+3; 
+]
+-------------------------------------------------
+intg start (intg)[ 
+a=a+b;
+ ]
+-------------------------------------------------
+intg start (intg)[ 
+a=a+b; 
+]
+-------------------------------------------------
+intg start (intg)[ 
+intg a , b , c ;
+]
+-------------------------------------------------
+intg start (intg) [ 
+WL (a<6 , a++) 
+a=a+2;
+]
+-------------------------------------------------
+intg start (intg) [ 
+FR ( intg a =0 ) { (a<5) ; a++ ;   } 
+a--; 
+]
+-------------------------------------------------
+intg start (intg) [ 
+$IF (a < b )
+a++; 
+$ELSE 
+a--;  
+]
+-------------------------------------------------
+intg start (intg) [ 
+SSWITCH (a )
+ {
+ CC = 2 : intg a ;
+ break ; } 
+]
+-------------------------------------------------
+intg start (intg) [
+a+=6 ;
+]
+-------------------------------------------------
+intg start (intg) [
+WL (a<6 , a++ ) 
+intg a=6;
+]
+-------------------------------------------------
+intg start (intg) [ 
+FR ( intg a =0 ) { (a<5) ; a++ ; }
+b++;
+]
+-------------------------------------------------
+intg start (intg) [
+$IF (a < b )
+a++;
+ $ELSE
+b++; 
+ ]
+-------------------------------------------------
+intg start (intg) [
+$IF (a && b )
+a++;
+ $ELSE
+b++; 
+ ]
+-------------------------------------------------
+intg start (intg) [
+SSWITCH (a ) 
+{ CC = 2 :
+intg a ; 
+break ; 
+}
+
+]
+-------------------------------------------------
+*****************multiple************************
+-------------------------------------------------
+intg start (intg) 
+[
+FR ( intg a =0 ) { (a<5) ; a++ ; }
+{
+$IF (a < b )
+intg a ;
+ $ELSE
+flt a ;
+}
+]
+-------------------------------------------------
+intg start (intg) [
+FR ( intg a =0 ) { (a<5) ; a++ ; }
+{
+$IF (a < b ){
+intg a ;
+WL (a<6 , a++)
+intg g ;
+}
+ $ELSE
+flt a ;
+}
+ ]
+-------------------------------------------------
+intg start (intg) [ 
+{ 
+a++ ; 
+a+=2 ; 
+} 
+]
+-------------------------------------------------
+intg start (intg) [
+{ a++ ; 
+a+=2 ;
+SSWITCH (a ) 
+{ CC = 2 : ; 
+break ; }
+a+=2 ;
+a++; } 
+]
+-------------------------------------------------
+intg start (intg) [ 
+FR ( intg a =0 ) { (a<5) ; a++ ; }{
+b++;
+b++;
+b++;
+}
+
+]
+-------------------------------------------------
+
+intg start (intg)[ ; ]
+FUNC (intg,intg,flt){ ;}
+
+-------------------------------------------------
+
+intg start (intg)[ ; ]
+FUNC (intg,a+b){ ;}
+
+-------------------------------------------------
+
+2222
+
+intg start (intg) [{
+intg a;
+flt b;
+$IF (a < b )
+a++;
+ $ELSE
+b++;
+} 
+ ]
+
+
+/// write condition
+intg start (intg) [{
+intg a=1;
+intg b=2;
+$IF (a < b )
+a++;
+ $ELSE
+b++;
+} 
+ ]
+///
+
+23334
+
+intg start (intg) 
+[
+FR ( intg a =0 ) { (a<5) ; a++ ; }
+{
+intg b;
+$IF (a < b )
+intg a ;
+ $ELSE
+flt k ;
+}
+]
+
+3444
+
+intg start (intg) [{
+intg a;
+SSWITCH (a ) 
+{ CC = 2 :
+intg a ; 
+break ; 
+}
+}
+]
+4444
+intg start (intg)[{
+intg a;
+str b; 
+a=a+b;
+} 
+]
+
+11111111
+intg start (intg) [{
+str a="abc";
+str b="fgt";
+str c=" ";
+c=a+b;
+} 
+ ]
+///
+
+intg start (intg) [{
+str a;
+str b;
+str c;
+c=a+b;
+} 
+ ]
+
+111111
+
+changes in while
+WL { (//(acond(sem_token))//a<5) ;//(inc(sem_token))// a++ ; }
+intg g ;
+}
+//
+after changes
+
+2222
+intg start (intg) [{
+intg a;
+WL [ (a<6) ; a++; ]
+intg b=6;
+}
+]
+2222
+//
+intg start (intg) [{ 
+FR ( intg a =0 ) { (a<5) ; a++ ;   } 
+a--; 
+}]
+//
+ 
+intg start (intg) [{ 
+intg b;
+FR ( intg a =0 ) { (a<5) ; a++ ;   } 
+$IF (a < b )
+intg a ;
+ $ELSE
+intg b;
+}
+
+]
+///
+intg start (intg) [{ 
+intg a;
+WL [ (a<6) ; a++; ]{
+$IF (a < b )
+intg a ;
+ $ELSE
+intg b;
+}
+}
+]intg start (intg) [{ 
+intg a;
+WL [ (a<6) ; a++; ]{
+$IF (a < b )
+intg a ;
+ $ELSE
+intg b;
+}
+}
+]
